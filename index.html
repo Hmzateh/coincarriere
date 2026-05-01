@@ -1,0 +1,1268 @@
+<!doctype html>
+<html lang="fr" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoinCarrière — Recrutement Hôtellerie & Restauration de Luxe au Maroc</title>
+  <meta name="description" content="La plateforme marocaine n°1 pour recruter des profils d'excellence dans l'hôtellerie et la restauration de luxe. +451 établissements de prestige nous font confiance. Publiez gratuitement." />
+  <meta property="og:title" content="CoinCarrière — Recrutement de luxe au Maroc" />
+  <meta property="og:description" content="Trouvez les meilleurs profils pour vos palaces, riads, restaurants gastronomiques et spas. Plateforme dédiée à l'hôtellerie de luxe marocaine." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://coincarriere.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Inter Font (LTR) & Cairo Font (RTL) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            marine: '#071A3D',
+            royal: '#0077B6',
+            sky: '#3DA5E6',
+            light: '#F7F8FA',
+            gold: '#C9A44C',
+            cream: '#FAF6EE',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['"Playfair Display"', 'serif'],
+            arabic: ['Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --marine: #071A3D;
+      --royal: #0077B6;
+      --sky: #3DA5E6;
+      --gold: #C9A44C;
+      --gold-light: #D4B661;
+      --light: #F7F8FA;
+      --cream: #FAF6EE;
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: var(--marine);
+      transition: direction 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+
+    /* RTL adjustments */
+    html[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+    html[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+    html[dir="rtl"] .text-left { text-align: right; }
+    html[dir="rtl"] .text-right { text-align: left; }
+
+    /* Scarcity banner */
+    .scarcity-banner {
+      background: linear-gradient(90deg, #C9A44C 0%, #D4B661 50%, #C9A44C 100%);
+      color: var(--marine);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .scarcity-banner .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #C53030;
+      box-shadow: 0 0 0 0 rgba(197, 48, 48, 0.7);
+      animation: pulse-red 1.6s infinite;
+    }
+
+    @keyframes pulse-red {
+      0% { box-shadow: 0 0 0 0 rgba(197, 48, 48, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(197, 48, 48, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(197, 48, 48, 0); }
+    }
+
+    /* Hero */
+    .hero-animated {
+      position: relative;
+      overflow: hidden;
+      background: var(--marine);
+    }
+
+    .hero-animated::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: url("./assets/hero-bg.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.1) contrast(1.05) brightness(0.78);
+      animation: heroMotion 26s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .hero-animated::after {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,26,61,0.96) 0%, rgba(7,26,61,0.86) 40%, rgba(0,119,182,0.4) 100%),
+        radial-gradient(circle at 30% 50%, rgba(61,165,230,0.18), transparent 60%);
+      z-index: 1;
+    }
+
+    .hero-animated > * { position: relative; z-index: 2; }
+
+    @keyframes heroMotion {
+      0% { transform: scale(1) translateX(0); }
+      50% { transform: scale(1.06) translateX(-18px); }
+      100% { transform: scale(1) translateX(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-animated::after {
+        background: linear-gradient(180deg, rgba(7,26,61,0.95) 0%, rgba(7,26,61,0.88) 55%, rgba(7,26,61,0.78) 100%);
+      }
+    }
+
+    /* CTA buttons */
+    .cta-primary {
+      background: linear-gradient(135deg, var(--sky) 0%, var(--royal) 100%);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(0,119,182,0.42), inset 0 1px 0 rgba(255,255,255,0.25);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .cta-primary:hover {
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: 0 24px 55px rgba(0,119,182,0.55);
+    }
+
+    .cta-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--marine);
+      box-shadow: 0 18px 40px rgba(201,164,76,0.42);
+      transition: all 0.25s ease;
+    }
+    .cta-gold:hover {
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: 0 24px 55px rgba(201,164,76,0.55);
+    }
+
+    /* Gold accent under titles */
+    .gold-line::after {
+      content: "";
+      display: block;
+      width: 60px; height: 4px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .luxury-card {
+      background: #fff;
+      border: 1px solid rgba(7,26,61,0.06);
+      box-shadow: 0 10px 30px -8px rgba(7,26,61,0.08);
+      transition: all 0.3s ease;
+    }
+    .luxury-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px -12px rgba(7,26,61,0.15);
+      border-color: rgba(61,165,230,0.3);
+    }
+
+    /* Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    html[dir="rtl"] @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-container {
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    /* FAQ */
+    .faq-item summary { list-style: none; cursor: pointer; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item .faq-icon { transition: transform 0.3s ease; }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    .faq-item[open] summary { color: var(--royal); }
+
+    /* Comparison table */
+    .compare-table { border-collapse: separate; border-spacing: 0; }
+    .compare-table th, .compare-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(7,26,61,0.08);
+      vertical-align: middle;
+    }
+    .compare-table th { font-weight: 700; }
+    .compare-bad { color: #94A3B8; }
+    .compare-good { color: var(--royal); font-weight: 600; }
+
+    /* Sticky mobile CTA */
+    .mobile-sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -8px 24px rgba(7,26,61,0.12);
+      border-top: 1px solid rgba(7,26,61,0.08);
+      z-index: 90;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-sticky-cta.visible { transform: translateY(0); }
+    @media (min-width: 768px) { .mobile-sticky-cta { display: none; } }
+
+    body.has-mobile-cta { padding-bottom: 80px; }
+    @media (min-width: 768px) { body.has-mobile-cta { padding-bottom: 0; } }
+
+    /* Section title font */
+    .display-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    /* Trust microbar */
+    .trust-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Persona cards */
+    .persona-card {
+      background: linear-gradient(180deg, #fff 0%, #FAF6EE 100%);
+      border: 1px solid rgba(201,164,76,0.18);
+    }
+    .persona-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 20px 40px -12px rgba(201,164,76,0.25);
+    }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '988694880332383');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=988694880332383&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Google Analytics 4 (placeholder — remplacer G-XXXXXXXXXX par votre ID) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+</head>
+
+<body class="font-sans antialiased selection:bg-sky selection:text-white">
+
+  <!-- TOP STACK : Scarcity Banner + Header (normal flow, no overlap on mobile) -->
+  <div class="top-stack relative z-40 bg-marine">
+    <!-- Scarcity Banner -->
+    <div class="scarcity-banner py-2 px-4 text-center text-xs md:text-sm flex items-center justify-center gap-2 md:gap-3 leading-snug">
+      <span class="pulse-dot inline-block flex-shrink-0"></span>
+      <span data-i18n="scarcity_text">Saison 2026 — Les meilleurs profils partent vite. Publiez maintenant.</span>
+    </div>
+    <!-- Header -->
+    <header class="w-full">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center gap-3">
+        <div class="flex items-center min-w-0">
+          <img src="./assets/logo.png" alt="CoinCarrière" class="h-8 md:h-12 w-auto object-contain" />
+        </div>
+        <div class="flex items-center gap-0.5 md:gap-1 bg-white/90 backdrop-blur-md p-1 rounded-full border border-white/40 shadow-lg flex-shrink-0" id="langSwitcher">
+          <button onclick="setLanguage('fr')" data-lang-btn="fr" class="px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-bold bg-white text-sky shadow-sm transition-all">FR</button>
+          <button onclick="setLanguage('en')" data-lang-btn="en" class="px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium text-gray-500 hover:text-marine transition-all">EN</button>
+          <button onclick="setLanguage('ar')" data-lang-btn="ar" class="px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium text-gray-500 hover:text-marine transition-all">AR</button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative pt-16 pb-20 md:pt-24 lg:pt-32 lg:pb-28 overflow-hidden px-6 min-h-[80vh] md:min-h-[88vh] flex flex-col items-center justify-center hero-animated">
+    <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
+
+      <!-- Trust microbar above headline -->
+      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8">
+        <div class="trust-pill px-3 py-1.5 rounded-full flex items-center gap-2 text-xs md:text-sm text-white">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold"></i>
+          <span data-i18n="hero_pill_morocco">Plateforme 100% marocaine</span>
+        </div>
+        <div class="trust-pill px-3 py-1.5 rounded-full flex items-center gap-2 text-xs md:text-sm text-white">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold"></i>
+          <span data-i18n="hero_pill_secure">Données sécurisées RGPD</span>
+        </div>
+        <div class="trust-pill px-3 py-1.5 rounded-full flex items-center gap-2 text-xs md:text-sm text-white">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-gold"></i>
+          <span data-i18n="hero_pill_specialized">Spécialiste du luxe</span>
+        </div>
+      </div>
+
+      <h1 class="display-title text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white mb-6" data-i18n="hero_title" style="text-shadow: 0 6px 32px rgba(0,0,0,0.55);">
+        Recrutez l'excellence pour vos palaces, riads et restaurants&nbsp;<span class="text-sky">de prestige</span>
+      </h1>
+
+      <p class="text-lg md:text-xl lg:text-2xl text-white/90 mb-10 max-w-3xl leading-relaxed" data-i18n="hero_subtitle" style="text-shadow: 0 4px 16px rgba(0,0,0,0.45);">
+        La plateforme marocaine dédiée à l'hôtellerie & restauration de luxe. Publiez gratuitement, recevez en 48h les profils alignés sur vos exigences de standing.
+      </p>
+
+      <div class="flex flex-col items-center gap-3 w-full sm:w-auto">
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" onclick="handleCTA(event, this.href, 'go2offer')" class="cta-primary w-full sm:w-auto px-10 md:px-14 py-5 font-bold rounded-full text-lg md:text-xl flex items-center justify-center gap-3" data-i18n="hero_cta">
+          <span>Publier mon annonce gratuitement</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <p class="text-sm text-white/70 font-medium flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mt-3">
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-sky"></i>
+            <span data-i18n="hero_check_1">Aucune carte bancaire requise</span>
+          </span>
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-sky"></i>
+            <span data-i18n="hero_check_2">Mise en ligne en 3 minutes</span>
+          </span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI Strip -->
+  <section class="bg-marine text-white py-10 border-b border-gold/20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-3 gap-4 md:gap-8 text-center" dir="ltr">
+      <div>
+        <p class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">+451</p>
+        <p class="text-[11px] md:text-xs uppercase tracking-widest text-white/60 mt-2 font-bold" data-i18n="kpi_companies">Entreprises actives</p>
+      </div>
+      <div class="border-x border-gold/20">
+        <p class="text-3xl md:text-5xl font-extrabold tracking-tight text-gold">50+</p>
+        <p class="text-[11px] md:text-xs uppercase tracking-widest text-white/60 mt-2 font-bold" data-i18n="kpi_establishments">Établissements de prestige</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-5xl font-extrabold tracking-tight text-sky">4.9<span class="text-xl text-white/40">/5</span></p>
+        <p class="text-[11px] md:text-xs uppercase tracking-widest text-white/60 mt-2 font-bold" data-i18n="kpi_satisfaction">Satisfaction recruteurs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By Carousel -->
+  <section class="py-14 bg-light overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
+      <h3 class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="trust_title">Ils nous font confiance</h3>
+      <p class="text-marine/60 text-sm max-w-xl mx-auto font-medium" data-i18n="trust_subtitle">Des établissements de prestige du Maroc choisissent CoinCarrière pour leurs recrutements stratégiques.</p>
+    </div>
+    <div class="w-full relative marquee-container">
+      <div class="marquee-track items-center gap-12 md:gap-20 px-6">
+        <img src="./assets/logo1.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo2.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo3.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo4.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo5.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo6.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo7.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo8.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <!-- duplicate -->
+        <img src="./assets/logo1.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo2.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo3.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo4.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo5.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo6.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo7.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+        <img src="./assets/logo8.png" alt="Partenaire" loading="lazy" class="h-10 md:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply" />
+      </div>
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="persona_eyebrow">Conçu pour les exigences du luxe</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine mb-4 gold-line" data-i18n="persona_title">Pour qui est CoinCarrière&nbsp;?</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div class="persona-card rounded-2xl p-6 text-center transition-all duration-300">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-marine text-gold flex items-center justify-center">
+            <i data-lucide="building-2" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-bold text-marine text-base mb-1" data-i18n="persona_palace">Palaces & Hôtels 5★</h3>
+          <p class="text-marine/60 text-xs" data-i18n="persona_palace_desc">Chefs, gouvernantes, concierges</p>
+        </div>
+        <div class="persona-card rounded-2xl p-6 text-center transition-all duration-300">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-marine text-gold flex items-center justify-center">
+            <i data-lucide="home" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-bold text-marine text-base mb-1" data-i18n="persona_riad">Riads de prestige</h3>
+          <p class="text-marine/60 text-xs" data-i18n="persona_riad_desc">Marrakech, Fès, Essaouira</p>
+        </div>
+        <div class="persona-card rounded-2xl p-6 text-center transition-all duration-300">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-marine text-gold flex items-center justify-center">
+            <i data-lucide="utensils-crossed" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-bold text-marine text-base mb-1" data-i18n="persona_resto">Restaurants gastronomiques</h3>
+          <p class="text-marine/60 text-xs" data-i18n="persona_resto_desc">Chefs étoilés & brigades</p>
+        </div>
+        <div class="persona-card rounded-2xl p-6 text-center transition-all duration-300">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-marine text-gold flex items-center justify-center">
+            <i data-lucide="flower-2" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-bold text-marine text-base mb-1" data-i18n="persona_spa">Spas & Wellness</h3>
+          <p class="text-marine/60 text-xs" data-i18n="persona_spa_desc">Thérapeutes, esthéticiennes</p>
+        </div>
+        <div class="persona-card rounded-2xl p-6 text-center transition-all duration-300 col-span-2 md:col-span-1">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-marine text-gold flex items-center justify-center">
+            <i data-lucide="wine" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-bold text-marine text-base mb-1" data-i18n="persona_traiteur">Traiteurs événementiels</h3>
+          <p class="text-marine/60 text-xs" data-i18n="persona_traiteur_desc">Mariages & galas haut de gamme</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 ÉTAPES -->
+  <section class="py-24 bg-light relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="steps_eyebrow">Process simplifié</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine mb-4 gold-line" data-i18n="steps_title">Recrutez en 4 étapes</h2>
+        <p class="text-marine/60 max-w-2xl mx-auto mt-6" data-i18n="steps_desc">De la publication de votre annonce à la signature du contrat, tout est pensé pour vous faire gagner un temps précieux.</p>
+      </div>
+
+      <div class="relative">
+        <!-- Timeline line desktop -->
+        <div class="hidden lg:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-royal/20 via-gold/40 to-royal/20"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-7 shadow-md border-l-4 border-royal h-full hover:shadow-2xl transition-all duration-300 luxury-card">
+              <div class="w-14 h-14 bg-gradient-to-br from-royal to-marine text-white rounded-full flex items-center justify-center mb-5 text-2xl font-extrabold shadow-lg ring-4 ring-white relative z-10">1</div>
+              <h3 class="text-lg font-bold text-marine mb-2" data-i18n="step1_title">Publiez votre offre</h3>
+              <p class="text-marine/70 leading-relaxed text-sm" data-i18n="step1_desc">Décrivez le poste en quelques minutes : standing attendu, langues, expérience, savoir-être.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-7 shadow-md border-l-4 border-royal h-full hover:shadow-2xl transition-all duration-300 luxury-card">
+              <div class="w-14 h-14 bg-gradient-to-br from-royal to-marine text-white rounded-full flex items-center justify-center mb-5 text-2xl font-extrabold shadow-lg ring-4 ring-white relative z-10">2</div>
+              <h3 class="text-lg font-bold text-marine mb-2" data-i18n="step2_title">Recevez les bons profils</h3>
+              <p class="text-marine/70 leading-relaxed text-sm" data-i18n="step2_desc">Notre algorithme filtre uniquement les candidats alignés sur l'univers du luxe et vos critères.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-7 shadow-md border-l-4 border-royal h-full hover:shadow-2xl transition-all duration-300 luxury-card">
+              <div class="w-14 h-14 bg-gradient-to-br from-royal to-marine text-white rounded-full flex items-center justify-center mb-5 text-2xl font-extrabold shadow-lg ring-4 ring-white relative z-10">3</div>
+              <h3 class="text-lg font-bold text-marine mb-2" data-i18n="step3_title">Évaluez en équipe</h3>
+              <p class="text-marine/70 leading-relaxed text-sm" data-i18n="step3_desc">Pipeline visuel, notes partagées avec vos managers, planification d'entretiens en un clic.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-7 shadow-md border-l-4 border-gold h-full hover:shadow-2xl transition-all duration-300 luxury-card">
+              <div class="w-14 h-14 bg-gradient-to-br from-gold to-[#D4B661] text-marine rounded-full flex items-center justify-center mb-5 text-2xl font-extrabold shadow-lg ring-4 ring-white relative z-10">4</div>
+              <h3 class="text-lg font-bold text-marine mb-2" data-i18n="step4_title">Embauchez sereinement</h3>
+              <p class="text-marine/70 leading-relaxed text-sm" data-i18n="step4_desc">Validez votre choix et signez. Notre équipe reste disponible pour structurer votre recrutement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="compare_eyebrow">La différence</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine mb-4 gold-line" data-i18n="compare_title">Recrutement classique vs CoinCarrière</h2>
+      </div>
+      <div class="bg-gradient-to-br from-cream to-light rounded-3xl p-4 md:p-8 shadow-xl border border-gold/15">
+        <div class="overflow-x-auto">
+          <table class="compare-table w-full text-sm md:text-base">
+            <thead>
+              <tr>
+                <th class="text-left text-marine/50 font-medium uppercase text-xs tracking-wider pb-4" data-i18n="compare_criterion">Critère</th>
+                <th class="text-center text-marine/50 font-medium uppercase text-xs tracking-wider pb-4" data-i18n="compare_classic">Recrutement classique</th>
+                <th class="text-center font-bold uppercase text-xs tracking-wider pb-4 text-royal" data-i18n="compare_coin">CoinCarrière</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-marine" data-i18n="compare_row1_label">Délai pour 1ers profils</td>
+                <td class="compare-bad text-center" data-i18n="compare_row1_bad">2 à 3 semaines</td>
+                <td class="compare-good text-center"><i data-lucide="check" class="inline w-4 h-4 mr-1"></i><span data-i18n="compare_row1_good">48 heures</span></td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-marine" data-i18n="compare_row2_label">Tri manuel des CV</td>
+                <td class="compare-bad text-center" data-i18n="compare_row2_bad">10h+ par semaine</td>
+                <td class="compare-good text-center"><i data-lucide="check" class="inline w-4 h-4 mr-1"></i><span data-i18n="compare_row2_good">Pré-filtrage automatique</span></td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-marine" data-i18n="compare_row3_label">Profils alignés sur le luxe</td>
+                <td class="compare-bad text-center" data-i18n="compare_row3_bad">Aléatoire</td>
+                <td class="compare-good text-center"><i data-lucide="check" class="inline w-4 h-4 mr-1"></i><span data-i18n="compare_row3_good">Vivier spécialisé</span></td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-marine" data-i18n="compare_row4_label">Coût de publication</td>
+                <td class="compare-bad text-center" data-i18n="compare_row4_bad">À partir de 2 000 MAD</td>
+                <td class="compare-good text-center"><i data-lucide="check" class="inline w-4 h-4 mr-1"></i><span data-i18n="compare_row4_good">Gratuit</span></td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-marine" data-i18n="compare_row5_label">Suivi candidature équipe</td>
+                <td class="compare-bad text-center" data-i18n="compare_row5_bad">Tableurs Excel</td>
+                <td class="compare-good text-center"><i data-lucide="check" class="inline w-4 h-4 mr-1"></i><span data-i18n="compare_row5_good">Pipeline collaboratif</span></td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-marine border-b-0" data-i18n="compare_row6_label">Support local FR / AR</td>
+                <td class="compare-bad text-center border-b-0" data-i18n="compare_row6_bad">Limité</td>
+                <td class="compare-good text-center border-b-0"><i data-lucide="check" class="inline w-4 h-4 mr-1"></i><span data-i18n="compare_row6_good">Équipe basée au Maroc</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="py-24 bg-light">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="ben_eyebrow">Pourquoi CoinCarrière</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine mb-4 gold-line" data-i18n="ben_title">Pensé pour les recruteurs du luxe</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="luxury-card p-8 rounded-2xl group">
+          <div class="w-14 h-14 bg-blue-50 text-royal rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-royal group-hover:text-white transition-all">
+            <i data-lucide="filter" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-marine mb-3" data-i18n="ben1_title">Filtre d'excellence</h3>
+          <p class="text-marine/60 text-sm leading-relaxed" data-i18n="ben1_desc">Stop aux candidatures non qualifiées. Vivier curé, ciblé sur les codes du luxe.</p>
+        </div>
+        <div class="luxury-card p-8 rounded-2xl group">
+          <div class="w-14 h-14 bg-blue-50 text-royal rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-royal group-hover:text-white transition-all">
+            <i data-lucide="clock" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-marine mb-3" data-i18n="ben2_title">Gain de temps RH</h3>
+          <p class="text-marine/60 text-sm leading-relaxed" data-i18n="ben2_desc">Économisez jusqu'à 10h par semaine sur le tri manuel. Concentrez-vous sur l'essentiel.</p>
+        </div>
+        <div class="luxury-card p-8 rounded-2xl group">
+          <div class="w-14 h-14 bg-blue-50 text-royal rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-royal group-hover:text-white transition-all">
+            <i data-lucide="user-check" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-marine mb-3" data-i18n="ben3_title">Savoir-être luxe</h3>
+          <p class="text-marine/60 text-sm leading-relaxed" data-i18n="ben3_desc">Profils capables de représenter votre standing : présentation, langues, postures.</p>
+        </div>
+        <div class="luxury-card p-8 rounded-2xl group">
+          <div class="w-14 h-14 bg-blue-50 text-royal rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-royal group-hover:text-white transition-all">
+            <i data-lucide="layout-dashboard" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-marine mb-3" data-i18n="ben4_title">Pipeline visuel</h3>
+          <p class="text-marine/60 text-sm leading-relaxed" data-i18n="ben4_desc">Dashboard clair, étapes personnalisables, suivi temps réel d'un coup d'œil.</p>
+        </div>
+        <div class="luxury-card p-8 rounded-2xl group">
+          <div class="w-14 h-14 bg-blue-50 text-royal rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-royal group-hover:text-white transition-all">
+            <i data-lucide="users" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-marine mb-3" data-i18n="ben5_title">Travail en équipe</h3>
+          <p class="text-marine/60 text-sm leading-relaxed" data-i18n="ben5_desc">Partagez les profils avec vos chefs de service, votez, commentez, décidez vite.</p>
+        </div>
+        <div class="luxury-card p-8 rounded-2xl group">
+          <div class="w-14 h-14 bg-blue-50 text-royal rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-royal group-hover:text-white transition-all">
+            <i data-lucide="headphones" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-marine mb-3" data-i18n="ben6_title">Accompagnement local</h3>
+          <p class="text-marine/60 text-sm leading-relaxed" data-i18n="ben6_desc">Équipe basée au Maroc. Support FR / AR, conseils RH dédiés au secteur du luxe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID-SCROLL CTA / RISK REVERSAL -->
+  <section class="py-20 bg-gradient-to-br from-marine via-[#0A2350] to-marine relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-sky/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/30">
+        <i data-lucide="shield-check" class="w-4 h-4 text-gold"></i>
+        <span class="text-xs font-bold uppercase tracking-widest text-gold" data-i18n="riskrev_eyebrow">Garantie sans risque</span>
+      </div>
+      <h2 class="display-title text-3xl md:text-5xl font-bold text-white mb-5" data-i18n="riskrev_title">100% gratuit pour publier.<br><span class="text-gold">Vous ne payez rien tant que vous ne recrutez pas.</span></h2>
+      <p class="text-lg text-white/75 mb-10 max-w-2xl mx-auto" data-i18n="riskrev_desc">Testez la plateforme sans engagement. Pas de carte bancaire, pas d'abonnement, pas de mauvaise surprise.</p>
+      <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" onclick="handleCTA(event, this.href, 'go2offer_mid')" class="cta-gold inline-flex w-full sm:w-auto px-10 md:px-14 py-5 font-bold rounded-full text-lg md:text-xl items-center justify-center gap-3 mx-auto" data-i18n="riskrev_cta">
+        <span>Tester gratuitement maintenant</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="vid_eyebrow">Aperçu en vidéo</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine mb-4 gold-line" data-i18n="vid_title">Découvrez comment CoinCarrière accélère vos recrutements</h2>
+        <p class="text-marine/60 leading-relaxed mt-6" data-i18n="vid_desc">Marre de trier des centaines de CV pour vos établissements de luxe&nbsp;? Visualisez vos candidatures, priorisez les profils qualifiés et concentrez-vous sur l'expérience client.</p>
+      </div>
+      <div class="max-w-4xl mx-auto relative rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(7,26,61,0.25)] border border-marine/10 aspect-video bg-marine" id="videoSection">
+        <video
+          id="demoVideo"
+          class="w-full h-full object-cover"
+          src="./assets/coincarriere.mp4"
+          poster="./assets/hero-bg.png"
+          loop playsinline preload="metadata" controls
+        ></video>
+        <!-- Tap-to-unmute overlay (shown only if browser blocks autoplay-with-sound) -->
+        <button
+          id="unmuteBtn"
+          class="hidden absolute top-4 right-4 z-10 bg-marine/85 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg hover:bg-marine transition-all"
+          aria-label="Activer le son"
+        >
+          <i data-lucide="volume-2" class="w-4 h-4"></i>
+          <span data-i18n="video_unmute">Activer le son</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="py-24 bg-light">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="testi_eyebrow">Ils témoignent</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine gold-line" data-i18n="testi_title">L'avis de nos recruteurs</h2>
+      </div>
+      <div class="bg-white rounded-3xl p-8 md:p-12 text-center relative shadow-2xl border border-gold/15">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-4 shadow-lg border border-gold/30">
+          <i data-lucide="quote" class="w-8 h-8 text-gold"></i>
+        </div>
+        <p class="text-lg md:text-2xl text-marine font-medium italic mb-8 mt-6 leading-relaxed" data-i18n="testi_text">
+          « Avant CoinCarrière, on passait des journées entières à filtrer des CV qui n'avaient rien à voir avec notre standing. Aujourd'hui, on reçoit des profils déjà alignés sur nos exigences. Notre dernière gouvernante a été recrutée en 9 jours. »
+        </p>
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-marine to-royal text-white flex items-center justify-center text-xl font-bold shadow-lg">KB</div>
+          <div>
+            <p class="font-bold text-marine text-lg" data-i18n="testi_author">Karim B.</p>
+            <p class="text-sm text-marine/60" data-i18n="testi_role">Directeur RH — Riad de prestige, Marrakech</p>
+            <div class="flex items-center justify-center gap-0.5 mt-2">
+              <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-xs font-bold text-gold uppercase tracking-[0.25em] mb-3" data-i18n="faq_eyebrow">Questions fréquentes</p>
+        <h2 class="display-title text-3xl md:text-5xl font-bold text-marine gold-line" data-i18n="faq_title">Tout ce qu'il faut savoir</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="faq-item bg-light rounded-2xl border border-marine/5 hover:border-royal/30 transition-all">
+          <summary class="px-6 py-5 flex items-center justify-between font-bold text-marine">
+            <span data-i18n="faq_q1">CoinCarrière est-il vraiment gratuit&nbsp;?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-royal flex-shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-marine/70 leading-relaxed text-sm md:text-base" data-i18n="faq_a1">Oui. La publication d'annonces, la réception de candidatures et le pipeline collaboratif sont 100% gratuits. Vous ne payez rien tant que vous n'avez pas recruté. Pas de carte bancaire requise pour démarrer.</div>
+        </details>
+        <details class="faq-item bg-light rounded-2xl border border-marine/5 hover:border-royal/30 transition-all">
+          <summary class="px-6 py-5 flex items-center justify-between font-bold text-marine">
+            <span data-i18n="faq_q2">Combien de temps pour recevoir mes premiers candidats&nbsp;?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-royal flex-shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-marine/70 leading-relaxed text-sm md:text-base" data-i18n="faq_a2">En moyenne 48 heures après la publication de votre annonce. Pour les postes recherchés (chefs, gouvernantes, concierges), les premières candidatures arrivent souvent dans les 24h.</div>
+        </details>
+        <details class="faq-item bg-light rounded-2xl border border-marine/5 hover:border-royal/30 transition-all">
+          <summary class="px-6 py-5 flex items-center justify-between font-bold text-marine">
+            <span data-i18n="faq_q3">Quels métiers sont couverts&nbsp;?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-royal flex-shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-marine/70 leading-relaxed text-sm md:text-base" data-i18n="faq_a3">Tous les métiers de l'hôtellerie et restauration de luxe&nbsp;: direction, réception, conciergerie, gouvernance, étage, restauration (chefs, brigades, salle), spa & wellness, événementiel, sécurité, maintenance technique haut de gamme.</div>
+        </details>
+        <details class="faq-item bg-light rounded-2xl border border-marine/5 hover:border-royal/30 transition-all">
+          <summary class="px-6 py-5 flex items-center justify-between font-bold text-marine">
+            <span data-i18n="faq_q4">Quelles villes sont couvertes au Maroc&nbsp;?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-royal flex-shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-marine/70 leading-relaxed text-sm md:text-base" data-i18n="faq_a4">Tout le Maroc&nbsp;: Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir, Essaouira, Ouarzazate, Chefchaouen, et toutes les destinations touristiques. Notre vivier compte des candidats mobiles dans tout le royaume.</div>
+        </details>
+        <details class="faq-item bg-light rounded-2xl border border-marine/5 hover:border-royal/30 transition-all">
+          <summary class="px-6 py-5 flex items-center justify-between font-bold text-marine">
+            <span data-i18n="faq_q5">Comment fonctionne le matching des profils&nbsp;?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-royal flex-shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-marine/70 leading-relaxed text-sm md:text-base" data-i18n="faq_a5">Notre algorithme croise vos exigences (expérience, langues, savoir-être, mobilité) avec les profils du vivier spécialisé luxe. Seules les candidatures pertinentes arrivent dans votre pipeline. Vous gardez la main sur la sélection finale.</div>
+        </details>
+        <details class="faq-item bg-light rounded-2xl border border-marine/5 hover:border-royal/30 transition-all">
+          <summary class="px-6 py-5 flex items-center justify-between font-bold text-marine">
+            <span data-i18n="faq_q6">Y a-t-il un support si j'ai besoin d'aide&nbsp;?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-royal flex-shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-marine/70 leading-relaxed text-sm md:text-base" data-i18n="faq_a6">Oui. Notre équipe est basée au Maroc et répond en français et en arabe sous 24h ouvrées. Pour les recruteurs actifs, un conseiller dédié peut vous accompagner sur la rédaction de votre annonce et la sélection des profils.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-28 bg-marine relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-marine via-royal/20 to-marine pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-sky/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h2 class="display-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight" data-i18n="final_title">Le prochain talent qui élèvera votre établissement vous attend</h2>
+      <p class="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed" data-i18n="final_desc">Publiez votre première annonce en 3 minutes. Recevez vos premiers profils dès demain. Sans risque, sans engagement.</p>
+
+      <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" onclick="handleCTA(event, this.href, 'go2offer2')" class="cta-primary inline-flex w-full sm:w-auto px-12 py-6 font-bold rounded-full text-xl items-center justify-center gap-3 mx-auto" data-i18n="final_cta">
+        <span>Publier mon annonce maintenant</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+
+      <div class="flex items-center justify-center gap-2 mt-8">
+        <span class="w-8 h-px bg-gold/40"></span>
+        <p class="text-xs text-gold font-bold uppercase tracking-[0.25em]" data-i18n="final_small">Gratuit • Sans engagement • Annulable à tout moment</p>
+        <span class="w-8 h-px bg-gold/40"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-marine py-14 border-t border-gold/20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
+        <div class="flex flex-col items-center md:items-start gap-4">
+          <img src="./assets/logo.png" alt="CoinCarrière" class="h-12 w-auto object-contain" />
+          <p class="text-white/60 text-sm max-w-xs text-center md:text-left" data-i18n="footer_tagline">La plateforme marocaine du recrutement hôtellerie & restauration de luxe.</p>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-3">
+          <a href="mailto:contact@coincarriere.com" class="text-white/70 hover:text-gold transition-colors text-sm flex items-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            contact@coincarriere.com
+          </a>
+          <div class="flex items-center gap-4 text-xs text-white/50">
+            <a href="https://coincarriere.com/privacy" target="_blank" rel="noopener" class="hover:text-gold transition-colors" data-i18n="footer_privacy">Politique de confidentialité</a>
+            <span class="text-white/30">•</span>
+            <a href="https://coincarriere.com/terms" target="_blank" rel="noopener" class="hover:text-gold transition-colors" data-i18n="footer_terms">Conditions d'utilisation</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-6 text-center">
+        <p class="text-white/40 text-xs font-medium uppercase tracking-[0.25em]">
+          © <span id="year"></span> CoinCarrière. <span data-i18n="footer_rights">Tous droits réservés.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-sticky-cta" id="mobileStickyCta">
+    <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" onclick="handleCTA(event, this.href, 'go2offer_mid')" class="cta-primary w-full px-6 py-4 font-bold rounded-full text-base flex items-center justify-center gap-2" data-i18n="sticky_cta">
+      <span>Publier mon annonce — Gratuit</span>
+      <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Lucide icons
+    lucide.createIcons();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // CTA tracking
+    function handleCTA(event, url, eventName) {
+      event.preventDefault();
+      if (typeof fbq === 'function' && eventName) {
+        fbq('trackCustom', eventName);
+      }
+      // GA4 (uncomment if GA4 is enabled)
+      // if (typeof gtag === 'function' && eventName) {
+      //   gtag('event', eventName, { event_category: 'cta', event_label: url });
+      // }
+      window.open(url, '_blank');
+    }
+
+    // Reveal sticky mobile CTA after hero scroll
+    const stickyCta = document.getElementById('mobileStickyCta');
+    let stickyShown = false;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > window.innerHeight * 0.6 && !stickyShown) {
+        stickyCta.classList.add('visible');
+        document.body.classList.add('has-mobile-cta');
+        stickyShown = true;
+      } else if (window.scrollY <= window.innerHeight * 0.4 && stickyShown) {
+        stickyCta.classList.remove('visible');
+        document.body.classList.remove('has-mobile-cta');
+        stickyShown = false;
+      }
+    }, { passive: true });
+
+    // Video : démarrage avec son lorsque l'utilisateur arrive sur la section vidéo
+    (function setupVideoOnScroll() {
+      const video = document.getElementById('demoVideo');
+      const section = document.getElementById('videoSection');
+      const unmuteBtn = document.getElementById('unmuteBtn');
+      if (!video || !section) return;
+
+      // S'assurer que la vidéo est en pause au chargement
+      video.pause();
+      video.muted = false;
+      video.volume = 1;
+
+      let hasAttemptedPlay = false;
+
+      const tryPlayWithSound = async () => {
+        if (hasAttemptedPlay) return;
+        hasAttemptedPlay = true;
+        try {
+          video.muted = false;
+          video.volume = 1;
+          await video.play();
+          // Succès : la vidéo joue avec son
+          unmuteBtn.classList.add('hidden');
+        } catch (err) {
+          // Le navigateur a bloqué (pas d'interaction utilisateur préalable)
+          // Fallback : on lance la vidéo en muet et on affiche le bouton "Activer le son"
+          try {
+            video.muted = true;
+            await video.play();
+            unmuteBtn.classList.remove('hidden');
+          } catch (e2) {
+            // Même le muet a échoué — laisser l'utilisateur cliquer play manuellement
+          }
+        }
+      };
+
+      // Bouton manuel pour activer le son si l'autoplay-avec-son est bloqué
+      unmuteBtn.addEventListener('click', () => {
+        video.muted = false;
+        video.volume = 1;
+        video.play();
+        unmuteBtn.classList.add('hidden');
+      });
+
+      // IntersectionObserver — démarre quand 50% de la section est visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            tryPlayWithSound();
+          } else if (!entry.isIntersecting) {
+            // Pause quand on quitte la section (économise CPU + son ne suit pas hors écran)
+            if (!video.paused) video.pause();
+          }
+        });
+      }, { threshold: [0, 0.5, 1] });
+
+      observer.observe(section);
+    })();
+
+    // i18n
+    const translations = {
+      fr: {
+        scarcity_text: "Saison 2026 — Les meilleurs profils partent vite. Publiez maintenant.",
+        hero_pill_morocco: "Plateforme 100% marocaine",
+        hero_pill_secure: "Données sécurisées RGPD",
+        hero_pill_specialized: "Spécialiste du luxe",
+        hero_title: "Recrutez l'excellence pour vos palaces, riads et restaurants&nbsp;<span class='text-sky'>de prestige</span>",
+        hero_subtitle: "La plateforme marocaine dédiée à l'hôtellerie & restauration de luxe. Publiez gratuitement, recevez en 48h les profils alignés sur vos exigences de standing.",
+        hero_cta: "<span>Publier mon annonce gratuitement</span>",
+        hero_check_1: "Aucune carte bancaire requise",
+        hero_check_2: "Mise en ligne en 3 minutes",
+        kpi_companies: "Entreprises actives",
+        kpi_establishments: "Établissements de prestige",
+        kpi_satisfaction: "Satisfaction recruteurs",
+        trust_title: "Ils nous font confiance",
+        trust_subtitle: "Des établissements de prestige du Maroc choisissent CoinCarrière pour leurs recrutements stratégiques.",
+        persona_eyebrow: "Conçu pour les exigences du luxe",
+        persona_title: "Pour qui est CoinCarrière&nbsp;?",
+        persona_palace: "Palaces & Hôtels 5★",
+        persona_palace_desc: "Chefs, gouvernantes, concierges",
+        persona_riad: "Riads de prestige",
+        persona_riad_desc: "Marrakech, Fès, Essaouira",
+        persona_resto: "Restaurants gastronomiques",
+        persona_resto_desc: "Chefs étoilés & brigades",
+        persona_spa: "Spas & Wellness",
+        persona_spa_desc: "Thérapeutes, esthéticiennes",
+        persona_traiteur: "Traiteurs événementiels",
+        persona_traiteur_desc: "Mariages & galas haut de gamme",
+        steps_eyebrow: "Process simplifié",
+        steps_title: "Recrutez en 4 étapes",
+        steps_desc: "De la publication de votre annonce à la signature du contrat, tout est pensé pour vous faire gagner un temps précieux.",
+        step1_title: "Publiez votre offre",
+        step1_desc: "Décrivez le poste en quelques minutes : standing attendu, langues, expérience, savoir-être.",
+        step2_title: "Recevez les bons profils",
+        step2_desc: "Notre algorithme filtre uniquement les candidats alignés sur l'univers du luxe et vos critères.",
+        step3_title: "Évaluez en équipe",
+        step3_desc: "Pipeline visuel, notes partagées avec vos managers, planification d'entretiens en un clic.",
+        step4_title: "Embauchez sereinement",
+        step4_desc: "Validez votre choix et signez. Notre équipe reste disponible pour structurer votre recrutement.",
+        compare_eyebrow: "La différence",
+        compare_title: "Recrutement classique vs CoinCarrière",
+        compare_criterion: "Critère",
+        compare_classic: "Recrutement classique",
+        compare_coin: "CoinCarrière",
+        compare_row1_label: "Délai pour 1ers profils",
+        compare_row1_bad: "2 à 3 semaines",
+        compare_row1_good: "48 heures",
+        compare_row2_label: "Tri manuel des CV",
+        compare_row2_bad: "10h+ par semaine",
+        compare_row2_good: "Pré-filtrage automatique",
+        compare_row3_label: "Profils alignés sur le luxe",
+        compare_row3_bad: "Aléatoire",
+        compare_row3_good: "Vivier spécialisé",
+        compare_row4_label: "Coût de publication",
+        compare_row4_bad: "À partir de 2 000 MAD",
+        compare_row4_good: "Gratuit",
+        compare_row5_label: "Suivi candidature équipe",
+        compare_row5_bad: "Tableurs Excel",
+        compare_row5_good: "Pipeline collaboratif",
+        compare_row6_label: "Support local FR / AR",
+        compare_row6_bad: "Limité",
+        compare_row6_good: "Équipe basée au Maroc",
+        ben_eyebrow: "Pourquoi CoinCarrière",
+        ben_title: "Pensé pour les recruteurs du luxe",
+        ben1_title: "Filtre d'excellence",
+        ben1_desc: "Stop aux candidatures non qualifiées. Vivier curé, ciblé sur les codes du luxe.",
+        ben2_title: "Gain de temps RH",
+        ben2_desc: "Économisez jusqu'à 10h par semaine sur le tri manuel. Concentrez-vous sur l'essentiel.",
+        ben3_title: "Savoir-être luxe",
+        ben3_desc: "Profils capables de représenter votre standing : présentation, langues, postures.",
+        ben4_title: "Pipeline visuel",
+        ben4_desc: "Dashboard clair, étapes personnalisables, suivi temps réel d'un coup d'œil.",
+        ben5_title: "Travail en équipe",
+        ben5_desc: "Partagez les profils avec vos chefs de service, votez, commentez, décidez vite.",
+        ben6_title: "Accompagnement local",
+        ben6_desc: "Équipe basée au Maroc. Support FR / AR, conseils RH dédiés au secteur du luxe.",
+        riskrev_eyebrow: "Garantie sans risque",
+        riskrev_title: "100% gratuit pour publier.<br><span class='text-gold'>Vous ne payez rien tant que vous ne recrutez pas.</span>",
+        riskrev_desc: "Testez la plateforme sans engagement. Pas de carte bancaire, pas d'abonnement, pas de mauvaise surprise.",
+        riskrev_cta: "<span>Tester gratuitement maintenant</span>",
+        vid_eyebrow: "Aperçu en vidéo",
+        vid_title: "Découvrez comment CoinCarrière accélère vos recrutements",
+        vid_desc: "Marre de trier des centaines de CV pour vos établissements de luxe&nbsp;? Visualisez vos candidatures, priorisez les profils qualifiés et concentrez-vous sur l'expérience client.",
+        video_unmute: "Activer le son",
+        testi_eyebrow: "Ils témoignent",
+        testi_title: "L'avis de nos recruteurs",
+        testi_text: "« Avant CoinCarrière, on passait des journées entières à filtrer des CV qui n'avaient rien à voir avec notre standing. Aujourd'hui, on reçoit des profils déjà alignés sur nos exigences. Notre dernière gouvernante a été recrutée en 9 jours. »",
+        testi_author: "Karim B.",
+        testi_role: "Directeur RH — Riad de prestige, Marrakech",
+        faq_eyebrow: "Questions fréquentes",
+        faq_title: "Tout ce qu'il faut savoir",
+        faq_q1: "CoinCarrière est-il vraiment gratuit&nbsp;?",
+        faq_a1: "Oui. La publication d'annonces, la réception de candidatures et le pipeline collaboratif sont 100% gratuits. Vous ne payez rien tant que vous n'avez pas recruté. Pas de carte bancaire requise pour démarrer.",
+        faq_q2: "Combien de temps pour recevoir mes premiers candidats&nbsp;?",
+        faq_a2: "En moyenne 48 heures après la publication de votre annonce. Pour les postes recherchés (chefs, gouvernantes, concierges), les premières candidatures arrivent souvent dans les 24h.",
+        faq_q3: "Quels métiers sont couverts&nbsp;?",
+        faq_a3: "Tous les métiers de l'hôtellerie et restauration de luxe&nbsp;: direction, réception, conciergerie, gouvernance, étage, restauration (chefs, brigades, salle), spa & wellness, événementiel, sécurité, maintenance technique haut de gamme.",
+        faq_q4: "Quelles villes sont couvertes au Maroc&nbsp;?",
+        faq_a4: "Tout le Maroc&nbsp;: Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir, Essaouira, Ouarzazate, Chefchaouen, et toutes les destinations touristiques. Notre vivier compte des candidats mobiles dans tout le royaume.",
+        faq_q5: "Comment fonctionne le matching des profils&nbsp;?",
+        faq_a5: "Notre algorithme croise vos exigences (expérience, langues, savoir-être, mobilité) avec les profils du vivier spécialisé luxe. Seules les candidatures pertinentes arrivent dans votre pipeline. Vous gardez la main sur la sélection finale.",
+        faq_q6: "Y a-t-il un support si j'ai besoin d'aide&nbsp;?",
+        faq_a6: "Oui. Notre équipe est basée au Maroc et répond en français et en arabe sous 24h ouvrées. Pour les recruteurs actifs, un conseiller dédié peut vous accompagner sur la rédaction de votre annonce et la sélection des profils.",
+        final_title: "Le prochain talent qui élèvera votre établissement vous attend",
+        final_desc: "Publiez votre première annonce en 3 minutes. Recevez vos premiers profils dès demain. Sans risque, sans engagement.",
+        final_cta: "<span>Publier mon annonce maintenant</span>",
+        final_small: "Gratuit • Sans engagement • Annulable à tout moment",
+        footer_tagline: "La plateforme marocaine du recrutement hôtellerie & restauration de luxe.",
+        footer_privacy: "Politique de confidentialité",
+        footer_terms: "Conditions d'utilisation",
+        footer_rights: "Tous droits réservés.",
+        sticky_cta: "<span>Publier mon annonce — Gratuit</span>"
+      },
+      en: {
+        scarcity_text: "2026 Season — Top talent goes fast. Post your job now.",
+        hero_pill_morocco: "100% Moroccan platform",
+        hero_pill_secure: "GDPR-secured data",
+        hero_pill_specialized: "Luxury specialist",
+        hero_title: "Recruit excellence for your palaces, riads and <span class='text-sky'>fine dining</span>",
+        hero_subtitle: "The Moroccan platform built for luxury hospitality & restaurant recruitment. Post for free, receive standing-aligned profiles within 48h.",
+        hero_cta: "<span>Post my job for free</span>",
+        hero_check_1: "No credit card required",
+        hero_check_2: "Live in 3 minutes",
+        kpi_companies: "Active companies",
+        kpi_establishments: "Prestigious establishments",
+        kpi_satisfaction: "Recruiter satisfaction",
+        trust_title: "Trusted by",
+        trust_subtitle: "Prestigious Moroccan establishments choose CoinCarrière for their strategic hires.",
+        persona_eyebrow: "Built for luxury standards",
+        persona_title: "Who is CoinCarrière for?",
+        persona_palace: "Palaces & 5★ Hotels",
+        persona_palace_desc: "Chefs, housekeepers, concierges",
+        persona_riad: "Prestige riads",
+        persona_riad_desc: "Marrakech, Fes, Essaouira",
+        persona_resto: "Fine dining",
+        persona_resto_desc: "Star chefs & brigades",
+        persona_spa: "Spas & Wellness",
+        persona_spa_desc: "Therapists, beauticians",
+        persona_traiteur: "Event caterers",
+        persona_traiteur_desc: "Weddings & high-end galas",
+        steps_eyebrow: "Streamlined process",
+        steps_title: "Hire in 4 steps",
+        steps_desc: "From posting your job to signing the contract, every step is designed to save you precious time.",
+        step1_title: "Post your job",
+        step1_desc: "Describe the role in minutes: standing, languages, experience, soft skills.",
+        step2_title: "Get the right profiles",
+        step2_desc: "Our matching engine surfaces only candidates aligned with luxury and your criteria.",
+        step3_title: "Evaluate as a team",
+        step3_desc: "Visual pipeline, shared notes with your managers, one-click interview scheduling.",
+        step4_title: "Hire with confidence",
+        step4_desc: "Validate your choice and sign. Our team stays available to support your hiring.",
+        compare_eyebrow: "The difference",
+        compare_title: "Classic recruitment vs CoinCarrière",
+        compare_criterion: "Criteria",
+        compare_classic: "Classic recruitment",
+        compare_coin: "CoinCarrière",
+        compare_row1_label: "Time to first profiles",
+        compare_row1_bad: "2 to 3 weeks",
+        compare_row1_good: "48 hours",
+        compare_row2_label: "Manual CV screening",
+        compare_row2_bad: "10h+ per week",
+        compare_row2_good: "Auto pre-filtering",
+        compare_row3_label: "Luxury-aligned profiles",
+        compare_row3_bad: "Random",
+        compare_row3_good: "Specialized talent pool",
+        compare_row4_label: "Posting cost",
+        compare_row4_bad: "From 2,000 MAD",
+        compare_row4_good: "Free",
+        compare_row5_label: "Team application tracking",
+        compare_row5_bad: "Excel sheets",
+        compare_row5_good: "Collaborative pipeline",
+        compare_row6_label: "Local FR / AR support",
+        compare_row6_bad: "Limited",
+        compare_row6_good: "Morocco-based team",
+        ben_eyebrow: "Why CoinCarrière",
+        ben_title: "Built for luxury recruiters",
+        ben1_title: "Excellence filter",
+        ben1_desc: "Stop unqualified applications. Curated talent pool tuned to luxury codes.",
+        ben2_title: "HR time saver",
+        ben2_desc: "Save up to 10 hours a week on manual screening. Focus on what matters.",
+        ben3_title: "Luxury soft skills",
+        ben3_desc: "Profiles ready to represent your standing: presentation, languages, posture.",
+        ben4_title: "Visual pipeline",
+        ben4_desc: "Clear dashboard, custom stages, real-time tracking at a glance.",
+        ben5_title: "Teamwork",
+        ben5_desc: "Share profiles with department heads, vote, comment, decide fast.",
+        ben6_title: "Local support",
+        ben6_desc: "Morocco-based team. FR / AR support, HR advice tailored to luxury.",
+        riskrev_eyebrow: "Risk-free guarantee",
+        riskrev_title: "100% free to post.<br><span class='text-gold'>You pay nothing until you hire.</span>",
+        riskrev_desc: "Try the platform with zero commitment. No credit card, no subscription, no surprises.",
+        riskrev_cta: "<span>Try free now</span>",
+        vid_eyebrow: "Video preview",
+        vid_title: "See how CoinCarrière accelerates your hiring",
+        vid_desc: "Tired of sorting hundreds of resumes for your luxury establishments? Visualize applications, prioritize qualified profiles, focus on guest experience.",
+        video_unmute: "Unmute",
+        testi_eyebrow: "Testimonials",
+        testi_title: "What recruiters say",
+        testi_text: "\"Before CoinCarrière, we'd spend full days filtering CVs that had nothing to do with our standing. Now we receive profiles already aligned with our requirements. Our last housekeeper was hired in 9 days.\"",
+        testi_author: "Karim B.",
+        testi_role: "HR Director — Prestige Riad, Marrakech",
+        faq_eyebrow: "FAQ",
+        faq_title: "Everything you need to know",
+        faq_q1: "Is CoinCarrière really free?",
+        faq_a1: "Yes. Posting jobs, receiving applications, and using the collaborative pipeline are 100% free. You only pay if you hire. No credit card required to start.",
+        faq_q2: "How long until I receive my first candidates?",
+        faq_a2: "On average 48 hours after publishing. For high-demand roles (chefs, housekeepers, concierges), first applications often arrive within 24h.",
+        faq_q3: "Which jobs are covered?",
+        faq_a3: "All luxury hospitality and restaurant roles: management, front desk, concierge, housekeeping, F&B (chefs, brigades, service), spa & wellness, events, security, premium technical maintenance.",
+        faq_q4: "Which Moroccan cities are covered?",
+        faq_a4: "All of Morocco: Marrakech, Casablanca, Rabat, Tangier, Fes, Agadir, Essaouira, Ouarzazate, Chefchaouen, and all touristic destinations. Our pool includes candidates mobile across the kingdom.",
+        faq_q5: "How does profile matching work?",
+        faq_a5: "Our engine matches your requirements (experience, languages, soft skills, mobility) against the luxury-specialized pool. Only relevant applications land in your pipeline. You retain final selection.",
+        faq_q6: "Is there support if I need help?",
+        faq_a6: "Yes. Our team is based in Morocco and replies in French and Arabic within 24 business hours. Active recruiters get a dedicated advisor for job ad writing and profile selection.",
+        final_title: "The next talent that will elevate your establishment is waiting",
+        final_desc: "Post your first job in 3 minutes. Receive your first profiles tomorrow. Risk-free, no commitment.",
+        final_cta: "<span>Post my job now</span>",
+        final_small: "Free • No commitment • Cancel anytime",
+        footer_tagline: "The Moroccan platform for luxury hospitality & restaurant recruitment.",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Use",
+        footer_rights: "All rights reserved.",
+        sticky_cta: "<span>Post my job — Free</span>"
+      },
+      ar: {
+        scarcity_text: "موسم 2026 — أفضل المواهب تنطلق بسرعة. انشر الآن.",
+        hero_pill_morocco: "منصة مغربية 100%",
+        hero_pill_secure: "بيانات محمية وفق GDPR",
+        hero_pill_specialized: "متخصص في قطاع الفخامة",
+        hero_title: "وظّف الكفاءات لقصورك ورياضك ومطاعمك <span class='text-sky'>الفاخرة</span>",
+        hero_subtitle: "المنصة المغربية المخصصة للفندقة والمطاعم الفاخرة. انشر مجانًا، واستقبل خلال 48 ساعة الملفات المتوافقة مع متطلبات مستواك.",
+        hero_cta: "<span>انشر إعلاني مجانًا</span>",
+        hero_check_1: "بدون بطاقة بنكية",
+        hero_check_2: "نشر فوري في 3 دقائق",
+        kpi_companies: "شركات نشطة",
+        kpi_establishments: "مؤسسات فاخرة",
+        kpi_satisfaction: "رضا جهات التوظيف",
+        trust_title: "يثقون بنا",
+        trust_subtitle: "مؤسسات مرموقة في المغرب تختار CoinCarrière لتوظيفها الاستراتيجي.",
+        persona_eyebrow: "مصمم لمتطلبات الفخامة",
+        persona_title: "لمن CoinCarrière؟",
+        persona_palace: "قصور وفنادق 5 نجوم",
+        persona_palace_desc: "طهاة، حاكمات، استقبال",
+        persona_riad: "رياضات فاخرة",
+        persona_riad_desc: "مراكش، فاس، الصويرة",
+        persona_resto: "مطاعم راقية",
+        persona_resto_desc: "طهاة نجوم وفرق",
+        persona_spa: "سبا وعافية",
+        persona_spa_desc: "معالجون، خبراء تجميل",
+        persona_traiteur: "متعهدو حفلات",
+        persona_traiteur_desc: "أعراس وحفلات راقية",
+        steps_eyebrow: "عملية مبسطة",
+        steps_title: "وظّف في 4 خطوات",
+        steps_desc: "من نشر إعلانك إلى التوقيع، كل شيء مصمم لتوفير وقتك الثمين.",
+        step1_title: "انشر عرضك",
+        step1_desc: "صف المنصب في دقائق: المستوى، اللغات، الخبرة، السلوك المهني.",
+        step2_title: "استقبل الملفات المناسبة",
+        step2_desc: "خوارزميتنا تختار فقط المرشحين المتوافقين مع عالم الفخامة ومعاييرك.",
+        step3_title: "قيّم بفريقك",
+        step3_desc: "خط أنابيب مرئي، ملاحظات مشتركة مع المدراء، جدولة المقابلات بنقرة.",
+        step4_title: "وظّف بثقة",
+        step4_desc: "أكد اختيارك ووقّع. فريقنا يبقى متاحًا لدعم توظيفك.",
+        compare_eyebrow: "الفرق",
+        compare_title: "التوظيف التقليدي مقابل CoinCarrière",
+        compare_criterion: "المعيار",
+        compare_classic: "التوظيف التقليدي",
+        compare_coin: "CoinCarrière",
+        compare_row1_label: "زمن استلام أول الملفات",
+        compare_row1_bad: "2 إلى 3 أسابيع",
+        compare_row1_good: "48 ساعة",
+        compare_row2_label: "الفرز اليدوي للسير الذاتية",
+        compare_row2_bad: "أكثر من 10 ساعات أسبوعيًا",
+        compare_row2_good: "فلترة تلقائية",
+        compare_row3_label: "ملفات متوافقة مع الفخامة",
+        compare_row3_bad: "عشوائي",
+        compare_row3_good: "قاعدة مواهب متخصصة",
+        compare_row4_label: "تكلفة النشر",
+        compare_row4_bad: "ابتداء من 2000 درهم",
+        compare_row4_good: "مجاني",
+        compare_row5_label: "متابعة الترشيحات بفريق",
+        compare_row5_bad: "جداول إكسل",
+        compare_row5_good: "خط أنابيب تعاوني",
+        compare_row6_label: "دعم محلي FR / AR",
+        compare_row6_bad: "محدود",
+        compare_row6_good: "فريق مقيم بالمغرب",
+        ben_eyebrow: "لماذا CoinCarrière",
+        ben_title: "مصمم لمسؤولي توظيف الفخامة",
+        ben1_title: "فلتر التميز",
+        ben1_desc: "وداعًا للترشيحات غير المؤهلة. قاعدة مواهب منتقاة بمعايير الفخامة.",
+        ben2_title: "توفير وقت الموارد البشرية",
+        ben2_desc: "وفر حتى 10 ساعات أسبوعيًا في الفرز اليدوي. ركّز على الأهم.",
+        ben3_title: "سلوكيات الفخامة",
+        ben3_desc: "ملفات قادرة على تمثيل مستواك: المظهر، اللغات، السلوك.",
+        ben4_title: "خط أنابيب مرئي",
+        ben4_desc: "لوحة قيادة واضحة، مراحل قابلة للتخصيص، متابعة لحظية.",
+        ben5_title: "العمل الجماعي",
+        ben5_desc: "شارك الملفات مع رؤساء الأقسام، صوّت، علّق، قرر بسرعة.",
+        ben6_title: "مرافقة محلية",
+        ben6_desc: "فريق مقيم بالمغرب. دعم FR / AR، استشارات موارد بشرية متخصصة.",
+        riskrev_eyebrow: "ضمان بدون مخاطر",
+        riskrev_title: "النشر مجاني 100%.<br><span class='text-gold'>لا تدفع شيئًا حتى تنجح في التوظيف.</span>",
+        riskrev_desc: "جرّب المنصة بدون التزام. لا بطاقة بنكية، لا اشتراك، لا مفاجآت.",
+        riskrev_cta: "<span>جرّب مجانًا الآن</span>",
+        vid_eyebrow: "معاينة بالفيديو",
+        vid_title: "اكتشف كيف تسرّع CoinCarrière توظيفك",
+        vid_desc: "هل سئمت فرز مئات السير الذاتية لمؤسساتك الفاخرة؟ تتبع الترشيحات، رتّب الملفات المؤهلة، وركز على تجربة العميل.",
+        video_unmute: "تفعيل الصوت",
+        testi_eyebrow: "شهادات",
+        testi_title: "آراء جهات التوظيف",
+        testi_text: "« قبل CoinCarrière، كنا نقضي أيامًا كاملة في فلترة سير ذاتية لا علاقة لها بمستوانا. اليوم نستقبل ملفات متوافقة مسبقًا مع متطلباتنا. آخر حاكمة وُظّفت في 9 أيام. »",
+        testi_author: "كريم ب.",
+        testi_role: "مدير الموارد البشرية — رياض فاخر، مراكش",
+        faq_eyebrow: "أسئلة شائعة",
+        faq_title: "كل ما تحتاج معرفته",
+        faq_q1: "هل CoinCarrière مجاني فعلاً؟",
+        faq_a1: "نعم. نشر الإعلانات، استقبال الترشيحات، وخط الأنابيب التعاوني كلها مجانية 100%. لا تدفع شيئًا حتى تنجح في التوظيف. لا بطاقة بنكية مطلوبة للبدء.",
+        faq_q2: "كم من الوقت لاستقبال أول المرشحين؟",
+        faq_a2: "في المتوسط 48 ساعة بعد نشر إعلانك. للوظائف المطلوبة (طهاة، حاكمات، استقبال)، تصل أولى الترشيحات غالبًا خلال 24 ساعة.",
+        faq_q3: "ما هي المهن المغطاة؟",
+        faq_a3: "جميع مهن الفندقة والمطاعم الفاخرة: الإدارة، الاستقبال، الكونسيرج، التدبير، الإيواء، المطاعم (طهاة، فرق، خدمة)، السبا والعافية، التنظيم، الأمن، الصيانة التقنية الراقية.",
+        faq_q4: "ما هي المدن المغطاة بالمغرب؟",
+        faq_a4: "كل المغرب: مراكش، الدار البيضاء، الرباط، طنجة، فاس، أكادير، الصويرة، ورزازات، شفشاون، وكل الوجهات السياحية. قاعدتنا تضم مرشحين متنقلين في كل المملكة.",
+        faq_q5: "كيف يعمل مطابقة الملفات؟",
+        faq_a5: "خوارزميتنا تطابق متطلباتك (الخبرة، اللغات، السلوك، التنقل) مع ملفات قاعدة المواهب المتخصصة في الفخامة. تصل فقط الترشيحات المناسبة إلى خط أنابيبك. تحتفظ بالاختيار النهائي.",
+        faq_q6: "هل هناك دعم إذا احتجت مساعدة؟",
+        faq_a6: "نعم. فريقنا مقيم بالمغرب ويرد بالفرنسية والعربية خلال 24 ساعة عمل. لجهات التوظيف النشطة، يمكن لمستشار مخصص مرافقتك في صياغة إعلانك واختيار الملفات.",
+        final_title: "الموهبة القادمة التي سترفع مستوى مؤسستك تنتظرك",
+        final_desc: "انشر إعلانك الأول في 3 دقائق. استقبل أولى الملفات غدًا. بدون مخاطر، بدون التزام.",
+        final_cta: "<span>انشر إعلاني الآن</span>",
+        final_small: "مجاني • بدون التزام • قابل للإلغاء",
+        footer_tagline: "المنصة المغربية لتوظيف الفندقة والمطاعم الفاخرة.",
+        footer_privacy: "سياسة الخصوصية",
+        footer_terms: "شروط الاستخدام",
+        footer_rights: "جميع الحقوق محفوظة.",
+        sticky_cta: "<span>انشر إعلاني — مجانًا</span>"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('cc_lang', lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+        if (btn.getAttribute('data-lang-btn') === lang) {
+          btn.className = 'px-3 md:px-4 py-1.5 rounded-full text-sm font-bold bg-white text-sky shadow-sm transition-all';
+        } else {
+          btn.className = 'px-3 md:px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-marine transition-all';
+        }
+      });
+      // Re-render lucide icons after innerHTML changes
+      lucide.createIcons();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('cc_lang') || 'fr';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
